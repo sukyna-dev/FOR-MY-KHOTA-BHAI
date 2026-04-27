@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rehan 🎂</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:#0a0a0a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+
+.card{
+  width:90%;
+  max-width:700px;
+  background:#111;
+  padding:35px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(255,0,60,0.15);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Pages */
+section{
+  position:absolute;
+  width:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  transform:scale(0.95);
+  transition:all 0.5s ease;
+  pointer-events:none;
+}
+
+section.active{
+  opacity:1;
+  transform:scale(1);
+  position:relative;
+  pointer-events:auto;
+}
+
+/* FIRST PAGE FONT (your style) */
+.first-page{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/* First Page Elements */
+.cake{
+  font-size:70px;
+  animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translateY(0)}
+  40%{transform:translateY(-12px)}
+  60%{transform:translateY(-6px)}
+}
+
+.title{
+  font-size:2.2rem;
+  color:#ff2e63;
+  margin:10px 0;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 5px #ff2e63;}
+  to{text-shadow:0 0 20px #ff2e63;}
+}
+
+.fireworks{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+/* Other pages text */
+.message{
+  font-size:1rem;
+  color:#eaeaea;
+  line-height:1.8;
+}
+
+/* Buttons */
+.nav{margin-top:20px;}
+
+.btn{
+  background:#ff2e63;
+  border:none;
+  padding:10px 22px;
+  margin:5px;
+  border-radius:25px;
+  color:white;
+  font-size:0.9rem;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px #ff2e63;
+}
+
+/* Confetti */
+.confetti{
+  position:fixed;
+  width:8px;
+  height:8px;
+  top:-10px;
+  opacity:0.8;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- PAGE 1 -->
+<section id="page1" class="active first-page">
+  <div class="cake">🎂</div>
+  <div class="title">✨ Happy Birthday Rehan ✨</div>
+  <div class="fireworks">🎆🎇🎉</div>
+  <div class="nav">
+    <button class="btn" onclick="nextPage()">Next ➡️</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+  <div class="message">
+  "HAPPY BIRTHDAY MY BIG BROTHER 🎉🎈 AJJ MERE BHAI KA BDAY HAYY 😭😭 THE ONE  WHO LISTENS ME AND UNDERSTANDS MY EMOTIONS ❤️ THE BIGGEST KELA EATER OF ALL TIME 😭💔 ACHA SORRY 😔 HEHEHEHE......تم جیو ہزاروں سال 🌷💌 تمھاری بہن ہمیشہ تمھارے ساتھ ھے ۔  . No matter what happens I Will always stay by ur side although videos bhi tere IP 14 se banane hotte mjhy"
+  </div>
+  <div class="nav">
+    <button class="btn" onclick="prevPage()">⬅️ Previous</button>
+    <button class="btn" onclick="nextPage()">Next ➡️</button>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="page3">
+  <div class="message">
+  "I STILL REMEMBER THOSE OLD DAYS OF OUR BACHPAN WHERE WE PLAYED TOGETHER AND TUNNE BHT TANG KIYA MJHY AB BARRA HORHA TOU BADMASHI NA KIYA KR ZYADA  SAMJH AYE KYUNKI AB MEI BHI CHOTI DON HO MERESE PANGA IS NOT CHANGA SAMJHEE HANNN ABB MJHY TANGG NHI KRNA KYUNKI TUM MERE BARRE BHAI HO ."
+  </div>
+  <div class="nav">
+    <button class="btn" onclick="prevPage()">⬅️ Previous</button>
+    <button class="btn" onclick="nextPage()">Next ➡️</button>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section id="page4">
+  <div class="message">
+  "Acha jokes apart Allah tumme bht see khushiyan ataa kren and may Allah make ur naseeb beautiful my big friend . Tum aese hee haste muskurate raho and and and may Allah give u success in all fields of life and tumhre har jaiz khuwahish poori hooo"
+  </div>
+  <div class="nav">
+    <button class="btn" onclick="prevPage()">⬅️ Previous</button>
+  </div>
+</section>
+
+</div>
+
+<script>
+let current=1;
+const total=4;
+
+function showPage(n){
+  for(let i=1;i<=total;i++){
+    document.getElementById("page"+i).classList.remove("active");
+  }
+  document.getElementById("page"+n).classList.add("active");
+
+  if(n===4){startConfetti();}
+}
+
+function nextPage(){
+  if(current<total){
+    current++;
+    showPage(current);
+  }
+}
+
+function prevPage(){
+  if(current>1){
+    current--;
+    showPage(current);
+  }
+}
+
+function startConfetti(){
+  for(let i=0;i<80;i++){
+    let conf=document.createElement("div");
+    conf.classList.add("confetti");
+
+    conf.style.left=Math.random()*100+"vw";
+    conf.style.background=["#ff2e63","#00eaff","#ffffff"][Math.floor(Math.random()*3)];
+    conf.style.animationDuration=(Math.random()*3+2)+"s";
+
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),5000);
+  }
+}
+</script>
+
+</body>
+</html>
